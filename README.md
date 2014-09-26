@@ -45,7 +45,6 @@ stream = fs.createReadStream(file, {encoding: "ascii"}).pipe(JSONStream.parse())
    stream.on "root", (root) ->
        console.log root
 
-
    stream.on "error", (error) ->
        console.log "---->", error
 ```
