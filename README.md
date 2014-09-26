@@ -48,3 +48,23 @@ stream = fs.createReadStream(file, {encoding: "ascii"}).pipe(JSONStream.parse())
    stream.on "error", (error) ->
        console.log "---->", error
 ```
+
+
+tar exctra
+```
+#tar = require('tar-stream')
+#extract = tar.extract()
+#fs.createReadStream(SCENARIO_TAR_FILE).pipe(zlib.createUnzip()).pipe(extract)
+#    .on 'entry', (header, stream, callback) ->
+#        console.log "header -->", header.name, header.size, header.type
+#        #console.log "stream -->", stream
+#        #if hearder.type == "directory"
+#        stream.resume();
+#        stream.on 'end', ->
+#            console.log "this entry end"
+#    .on 'error', ->
+#        console.log "error", arguments
+#    .on 'finish', ->
+#        console.log "finished"
+```
+
