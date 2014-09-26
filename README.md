@@ -68,3 +68,9 @@ fs.createReadStream(SCENARIO_TAR_FILE).pipe(zlib.createUnzip()).pipe(extract)
         console.log "finished"
 ```
 
+read files in directory and sub-directories
+```
+recursive = require('recursive-readdir')
+//["*.js", "*.pcap*"] is exclude files, pretty wire...
+recursive(OFFLINE_DATA_PATH, ["*.js", "*.pcap*"], (err, files) ->
+```
