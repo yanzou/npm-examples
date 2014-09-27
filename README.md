@@ -3,7 +3,7 @@ npm-examples
 
 
 ##read zip file
-```js
+```coffee
 
 stream = fs.createReadStream(SCENARIO_TAR_FILE, {
     flags: 'r',
