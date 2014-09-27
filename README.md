@@ -2,8 +2,8 @@ npm-examples
 ============
 
 
-read zip file
-```
+##read zip file
+```js
 
 stream = fs.createReadStream(SCENARIO_TAR_FILE, {
     flags: 'r',
@@ -33,9 +33,9 @@ stream.addListener('error', ->
 )
 ```
 
-JSONStream
-```
-SONStream = require('JSONStream')
+##JSONStream
+```js
+JSONStream = require('JSONStream')
 stream = fs.createReadStream(file, {encoding: "ascii"}).pipe(JSONStream.parse())
 
    stream.on "data", (data) ->
@@ -51,7 +51,7 @@ stream = fs.createReadStream(file, {encoding: "ascii"}).pipe(JSONStream.parse())
 
 
 tar exctract in stream
-```
+```js
 tar = require('tar-stream')
 extract = tar.extract()
 fs.createReadStream(SCENARIO_TAR_FILE).pipe(zlib.createUnzip()).pipe(extract)
@@ -68,8 +68,19 @@ fs.createReadStream(SCENARIO_TAR_FILE).pipe(zlib.createUnzip()).pipe(extract)
         console.log "finished"
 ```
 
-read files in directory and sub-directories
+##extractTarball
+```js
+tarball = require('tarball-extract')
+tarball.extractTarball('sss.tgz', '/tmp/test/', (err) ->
+    if (err)
+        console.log(err)
+    else
+        console.log("oj")
+)
 ```
+
+##read files in directory and sub-directories
+```js
 recursive = require('recursive-readdir')
 //["*.js", "*.pcap*"] is exclude files, pretty wire...
 recursive(OFFLINE_DATA_PATH, ["*.js", "*.pcap*"], (err, files) ->
