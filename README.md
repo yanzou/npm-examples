@@ -34,7 +34,7 @@ stream.addListener('error', ->
 ```
 
 ##JSONStream
-```js
+```coffee
 JSONStream = require('JSONStream')
 stream = fs.createReadStream(file, {encoding: "ascii"}).pipe(JSONStream.parse())
 
@@ -51,7 +51,7 @@ stream = fs.createReadStream(file, {encoding: "ascii"}).pipe(JSONStream.parse())
 
 
 tar exctract in stream
-```js
+```coffee
 tar = require('tar-stream')
 extract = tar.extract()
 fs.createReadStream(SCENARIO_TAR_FILE).pipe(zlib.createUnzip()).pipe(extract)
@@ -69,7 +69,7 @@ fs.createReadStream(SCENARIO_TAR_FILE).pipe(zlib.createUnzip()).pipe(extract)
 ```
 
 ##extractTarball
-```js
+```coffee
 tarball = require('tarball-extract')
 tarball.extractTarball('sss.tgz', '/tmp/test/', (err) ->
     if (err)
@@ -80,7 +80,7 @@ tarball.extractTarball('sss.tgz', '/tmp/test/', (err) ->
 ```
 
 ##read files in directory and sub-directories
-```js
+```coffee
 recursive = require('recursive-readdir')
 //["*.js", "*.pcap*"] is exclude files, pretty wire...
 recursive(OFFLINE_DATA_PATH, ["*.js", "*.pcap*"], (err, files) ->
